@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Whoops! Error Occured.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" integrity="sha256-zIG416V1ynj3Wgju/scU80KAEWOsO5rRLfVyRDuOv7Q=" crossorigin="anonymous" />
+</head>
+<body>
+    <div class="container">
+        <div class="columns is-vcentered is-centered" style="height:100vh;">
+            <div class="column is-three-quarters">
+                <h3 class="has-text-danger is-size-3">Whoops, <?=$error['title']?></h3>
+                <p>Since it's an error, here's the detail:</p>
+                <pre><?=$error['desc']?></pre>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
