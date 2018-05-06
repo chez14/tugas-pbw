@@ -17,3 +17,4 @@
 
  // Let's start with simple start.
 include("sistem/autoload.php");
+Autocontrol::boot();

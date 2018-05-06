@@ -4,14 +4,6 @@ session_start();
 class Base {
     protected static $db = null;
     static function get_db() {
-        // if(!class_exists('Config\DB')) {
-        //     die(View::render("error.html", [
-        //         "error"=>[
-        //             "title"=>"Fatal Error",
-        //             "desc"=>"The database is not present while it's needed."
-        //         ]
-        //     ]));
-        // }
         if(self::$db)
             return self::$db;
         $d = new \mysqli(
