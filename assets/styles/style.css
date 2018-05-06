@@ -1,0 +1,10 @@
+.is-berbackground {
+    background: 
+        linear-gradient(
+            rgba(0, 0, 0, 0.6), 
+            rgba(0, 0, 0, 0.6)
+        ),
+        url("../img/banner.jpg");
+    background-size: cover;
+    background-position: center center;
+}

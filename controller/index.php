@@ -2,6 +2,6 @@
 Namespace Controller;
 class index {
     public function get_index() {
-        echo "hay";
+        \Sistem\View::render("index.php",[]);
     }
 }
