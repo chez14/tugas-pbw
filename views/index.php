@@ -22,6 +22,7 @@
         <div class="columns">
             <div class="column">
                 <section class="section has-text-centered">
+                    <?php $this->include("_part/message.php") ?>
                     <a href="/user/signup" class="button is-dark">Sign Up</a>
                     <a href="/user/login" class="button is-dark">Login</a>
                 </section>
