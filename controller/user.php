@@ -26,4 +26,20 @@ class user {
     public static function get_signup() {
         \Sistem\View::render("user_register.php",[]);
     }
+
+    public static function post_register() {
+        \Helper\Ajaxify::boot();
+
+        $statement = \Sistem\Base::get_db()
+            ->prepare("INSERT INTO anggota(username, password, nama, telepon, alamat, is_admin) values(?, ?, ?, ?, ?, 0)");
+        $statement->bind_param("sssss", 
+            $_POST['username'],
+            \Model\User::hash_pass($_POST['password']),
+            $_POST['nama'],
+            $_POST['phone'],
+            $_POST['address']
+        );
+        $statement->execute();
+        \Helper\Ajaxify::serve(["status"=>true]);
+    }
 }
