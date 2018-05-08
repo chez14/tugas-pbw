@@ -8,34 +8,30 @@
 </head>
 <body>
     <div class="container">
-        <div class="columns">
-            <div class="column">
-                <section class="hero is-dark is-berbackground">
-                    <div class="hero-body has-text-centered">
-                        <h1 class="title">
-                            eLiblary
-                        </h1>
-                    </div>
-                </section>
-            </div>
-        </div>
+        <?= $this->include("_part/kepala.php"); ?>        
         <div class="columns is-centered">
             <div class="column is-4">
-                <section class="section has-text-centered">
-                    <div class="panel">
-                        <div class="panel-heading">Login</div>
-                        <div class="panel-block">
-                            <form action="/user/login" method="post" class="control">
+                <section class="section">
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            Login
+                        </p>
+                    </header>
+                    <div class="card-content">
+                        <div class="content">
+                            <?php $this->include("_part/message.php") ?>
+                            <form action="/user/login" method="post">
                                 <div class="field">
                                     <label class="label">Username</label>
                                     <div class="control">
-                                        <input class="input" type="text" placeholder="Text input">
+                                        <input class="input" name="username" type="text" placeholder="Text input">
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label class="label">Password</label>
                                     <div class="control">
-                                        <input class="input" type="password" placeholder="Text input">
+                                        <input class="input" name="password" type="password" placeholder="Text input">
                                     </div>
                                 </div>
                                 <div class="control">
@@ -45,6 +41,7 @@
                             </form>
                         </div>
                     </div>
+                </div>
                 </section>
             </div>
         </div>
