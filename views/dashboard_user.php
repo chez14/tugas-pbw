@@ -7,7 +7,7 @@
     <?= $this->include("_part/header.php"); ?>
 </head>
 <body>
-    <?= $this->include("_part/navbar.php"); ?>       
+    <?= $this->include("_part/navbar.php", ['active_link'=>'home']); ?>
     <div class="container">
         <div class="columns">
             <?= $this->include("_part/sidebar.php"); ?>       
@@ -17,6 +17,7 @@
             </div>
         </div>
     </div>
+
     <?= $this->include("_part/footer.php"); ?>
 </body>
 </html>

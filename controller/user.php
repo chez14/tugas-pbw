@@ -46,6 +46,6 @@ class user {
     public static function get_logout() {
         \Model\User::deinject();
         \Helper\Msg::add("You have been logouted successfully.", "is-info");
-        header("Location: /");        
+        header("Location: /");
     }
 }
