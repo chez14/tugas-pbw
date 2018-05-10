@@ -1,6 +1,11 @@
 # Tugas PBW
 Repo ini adalah repo untuk pengerjaan tugas kelompok matakuliah Pemrograman Berbasis Web.
 
+## Getting Started
+- Copy-paste `sistem/config/db.example.php` jadi `sistem/config/db.php`, dan lengkapi konfigurasi yang ada.
+- Copy-paste `sistem/config/constants.example.php` jadi `sistem/config/constants.php`, dan lengkapi konfigurasi yang ada.
+- Import `tugas_pbw.sql` to your DB setting. Then you're done.
+
 ## Tim
  - Gunawan Christianto 2016730011
  - Firman Sandy P 2016730077
