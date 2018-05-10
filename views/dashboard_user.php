@@ -10,8 +10,7 @@
     <?= $this->include("_part/navbar.php", ['active_link'=>'home']); ?>
     <div class="container">
         <div class="columns">
-            <?= $this->include("_part/sidebar.php"); ?>       
-            
+            <?= $this->include("_part/sidebar.php"); ?>
             <div class="column">
                 
             </div>

@@ -10,10 +10,10 @@
             Borrowing History
         </a>
         <?php if(\Model\User::fetch_user()['is_admin']): ?>
-        <a class="panel-block<?= $active_link=="member"?" is-active": "" ?>" href="/admin/list_member">
+        <a class="panel-block<?= $active_link=="member"?" is-active": "" ?>" href="/admin/list?is_admin=0">
             Member List
         </a>
-        <a class="panel-block<?= $active_link=="adminstator"?" is-active": "" ?>" href="/admin/list_admin">
+        <a class="panel-block<?= $active_link=="adminstator"?" is-active": "" ?>" href="/admin/list?is_admin=1">
             Administrator List
         </a>
         <?php endif; ?>
