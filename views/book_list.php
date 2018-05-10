@@ -38,14 +38,22 @@
                                 </span>
                             </p>
                             <p class="control">
-                                <button class="button is-BLACK">
+                                <button class="button is-black">
                                 SEARCH
                                 </button>
                             </p>
+                            <?php if(\Model\User::fetch_user()['is_admin']):?>
+                            <p class="control" data-trigger="new-book">
+                                <a class="button is-primary">
+                                Add New
+                                </a>
+                            </p>
+                            <?php endif; ?>
                         </div>
                         </form>
                     </div>
                 </div>
+                <?= $this->include("_part/message.php"); ?>
                 <table class="table is-striped">
                     <thead>
                         <tr>
@@ -79,7 +87,59 @@
             </div>
         </div>
     </div>
-
+    <div class="modal" id="new-book">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="title">Add new Book</h3>
+                    <form action="#" method="post">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" name="title" placeholder="title" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" name="author" placeholder="author" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" name="publication_year" placeholder="publication_year" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" name="publisher" placeholder="publisher" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <div class="select is-multiple">
+                                    <select multiple size="3" name="category[]">
+                                        <?php foreach($categories as $cat): ?>
+                                        <option value="<?= $cat['id'] ?>"><?= $cat['nama'] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="button">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <button class="modal-close is-large" data-trigger="close-modal" aria-label="close"></button>
+    </div>
     <?= $this->include("_part/footer.php"); ?>
+
+    <script>
+        $(document).ready(()=>{
+            $("[data-trigger='new-book']").click(function(e){
+                $("#new-book").addClass("is-active");
+            });
+        });
+    </script>
 </body>
 </html>
