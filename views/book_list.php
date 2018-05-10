@@ -65,7 +65,13 @@
                             <td><?= $book['author'] ?></td>
                             <td><?= $book['publication_year'] ?></td>
                             <td><?= $book['publisher'] ?></td>
-                            <td><?= $book['category'] ?></td>
+                            <td>
+                                <div class="tags">
+                                <?php foreach($book['kategori'] as $kat): ?>
+                                    <span class="tag"><?= $kat['nama'] ?></span>    
+                                <?php endforeach;?>
+                                </div>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

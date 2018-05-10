@@ -13,9 +13,27 @@ class books {
         } else {
             $query = \Sistem\Base::get_db()->query("SELECT * FROM buku");
         }
+        $books = \Helper\DB::fetch_all($query);
+
+        $books = array_map(function($buk) {
+            $buk['kategori'] = \Helper\DB::fetch_all(\Sistem\Base::get_db()->query("SELECT * FROM kategoribuku left join kategori on kategoribuku.id_kategori = kategori.id where kategoribuku.id_buku = $buk[id]"));
+            return $buk;
+        }, $books);
+
         \Sistem\View::render("book_list.php",[
-            "books"=>\Helper\DB::fetch_all($query),
+            "books"=>$books,
             "allow_search"=>$by
+        ]);        
+    }
+
+    public function get_borrow() {
+        $query = \Sistem\Base::get_db()->query("SELECT buku.*, 
+            peminjaman.*, 
+            (peminjaman.tanggal_kembali - peminjaman.tanggal_deadline) as x_overdue, 
+            ((peminjaman.tanggal_kembali - peminjaman.tanggal_deadline) * 1) as fine
+            FROM peminjaman left join buku on buku.id=peminjaman.id_buku");
+        \Sistem\View::render("book_borrow.php",[
+            "books"=>\Helper\DB::fetch_all($query)
         ]);        
     }
 }
