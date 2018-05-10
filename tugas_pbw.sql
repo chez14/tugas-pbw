@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 10, 2018 at 03:48 PM
+-- Generation Time: May 10, 2018 at 04:55 PM
 -- Server version: 5.7.22-0ubuntu0.16.04.1
 -- PHP Version: 7.1.16-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `anggota` (
   `id` int(11) NOT NULL,
-  `username` text NOT NULL,
+  `username` varchar(64) NOT NULL,
   `password` text NOT NULL,
   `nama` text,
   `telepon` text,
@@ -99,7 +99,8 @@ CREATE TABLE `peminjaman` (
 -- Indexes for table `anggota`
 --
 ALTER TABLE `anggota`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `buku`
@@ -134,25 +135,25 @@ ALTER TABLE `peminjaman`
 -- AUTO_INCREMENT for table `anggota`
 --
 ALTER TABLE `anggota`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `kategoribuku`
 --
 ALTER TABLE `kategoribuku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `peminjaman`
