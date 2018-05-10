@@ -7,7 +7,7 @@
     <?= $this->include("_part/header.php"); ?>
 </head>
 <body>
-    <?= $this->include("_part/navbar.php"); ?>
+    <?= $this->include("_part/navbar.php", ['active_link'=>'profil']); ?>
     <div class="container">
         <div class="columns">
             <?= $this->include("_part/sidebar.php"); ?>       
@@ -33,7 +33,7 @@
         </div>
     </div>
     <!-- Modal ganti -->
-    <div class="modal is-active" id="profile-edit">
+    <div class="modal" id="profile-edit">
         <div class="modal-background"></div>
         <div class="modal-content">
         <div class="card">

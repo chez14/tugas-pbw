@@ -33,7 +33,7 @@
                 Hai <?=\Model\User::fetch_user()['nama']?>!
             </a>
             <div class="navbar-dropdown is-boxed">
-                <a class="navbar-item" href="/user/profil">
+                <a class="navbar-item<?= $active_link=="profil"?" is-active": "" ?>" href="/user/profil">
                     Profil
                 </a>
                 <hr class="navbar-divider">
