@@ -14,10 +14,10 @@
             
             <div class="column content">
                 <div class="columns">
-                    <div class="column">
+                    <div class="column is-3">
                         <h2 class="is-title">Book List</h2>
                     </div>
-                    <div class="column has-text-right">
+                    <div class="column has-text-right is-9">
                         <form action="#" method="get">
                         <div class="field has-addons has-addons-right">
                             <p class="control">
