@@ -22,7 +22,7 @@
         <a href="/news" class="navbar-item<?= $active_link=="news"?" is-active": "" ?>">
             <i class="fas fa-newspaper"></i>
         </a>
-        <a href="/" class="navbar-item<?= $active_link=="email"?" is-active": "" ?>">
+        <a href="mailto:?subject=hay" class="navbar-item<?= $active_link=="email"?" is-active": "" ?>">
             <i class="fas fa-envelope"></i>
         </a>
     </div>
