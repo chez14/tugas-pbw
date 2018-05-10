@@ -133,10 +133,6 @@
                     
                 });
             });
-
-            $("[data-trigger='close-modal']").click(function(x){
-                $(this).parents(".modal").removeClass("is-active");
-            });
         });
     </script>
 </body>

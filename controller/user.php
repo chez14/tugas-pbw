@@ -32,7 +32,8 @@ class user {
 
         $statement = \Sistem\Base::get_db()
             ->prepare("INSERT INTO anggota(username, password, nama, telepon, alamat, is_admin) values(?, ?, ?, ?, ?, 0)");
-        $statement->bind_param("sssss", 
+        $statement->bind_param(
+            "sssss", 
             $_POST['username'],
             \Model\User::hash_pass($_POST['password']),
             $_POST['nama'],
@@ -47,5 +48,37 @@ class user {
         \Model\User::deinject();
         \Helper\Msg::add("You have been logouted successfully.", "is-info");
         header("Location: /");
+    }
+
+    public static function get_profil() {
+        \Sistem\View::render("dashboard_profile.php",[
+            "user"=>\Model\User::fetch_user()
+        ]);
+    }
+
+    public static function post_profil() {
+        \Helper\Ajaxify::boot();
+        $id = \Model\User::fetch_user()['id'];
+        $statement = \Sistem\Base::get_db()
+            ->prepare("UPDATE anggota set nama = ?, telepon = ?, alamat = ? WHERE id=?");
+        $statement->bind_param(
+            "sssi",
+            $_POST['nama'],
+            $_POST['telepon'],
+            $_POST['alamat'],
+            \Model\User::fetch_user()['id']
+        );
+        $statement->execute();
+        if(isset($_POST['password']) && !empty($_POST['password'])) {
+            $statement = \Sistem\Base::get_db()
+                ->prepare("UPDATE anggota set password=? where id=?");
+            $statement->bind_param(
+                "si",
+                \Model\User::hash_pass($_POST['password']),
+                $id
+            );
+            $statement->execute();
+        }
+        \Helper\Ajaxify::serve(["status"=>true]);
     }
 }
