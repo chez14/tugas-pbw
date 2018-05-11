@@ -107,8 +107,9 @@
                 e.preventDefault();
                 let data = {
                     username: $("input[name='username']").val(),
+                    name: $("input[name='name']").val(),
                     password: $("input[name='password']").val(),
-                    address: $("input[name='address']").val(),
+                    address: $("input[name='addr']").val(),
                     phone: $("input[name='phone']").val(),
                 }
                 if(data.password != $("input[name='password_c']").val()) {
