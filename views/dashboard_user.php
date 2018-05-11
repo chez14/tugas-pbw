@@ -12,7 +12,7 @@
         <div class="columns">
             <?= $this->include("_part/sidebar.php"); ?>
             <div class="column">
-                
+                <h3 class="title">Welcome!</h3>
             </div>
         </div>
     </div>
