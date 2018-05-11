@@ -61,6 +61,7 @@ class admin {
         $total_category = 3;
         $total_book_per_category = 10;
         $total_pinjam = 20;
+        $total_admin = 3;
 
         //generate user
         for($i=0; $i<$total_user; $i++) {
@@ -77,6 +78,25 @@ class admin {
                 );
                 $statement->execute();
                 $user_id[] = $statement->insert_id;
+            } catch (\Exception $e) {
+                //gagal update
+            }
+        }
+        for($i=0; $i<$total_admin; $i++) {
+            try {
+                $statement = \Sistem\Base::get_db()->prepare("INSERT INTO anggota (username, password, nama, telepon, alamat, is_admin) VALUES(?,?,?,?,?,0)");
+                $data=\Helper\AB::generate(32);
+                $statement->bind_param(
+                    "sssss",
+                    $data,
+                    $x=\Model\User::hash_pass($data),
+                    $data,
+                    $data,
+                    $data
+                );
+                $statement->execute();
+                $user_admin[] = $statement->insert_id;
+                \Helper\Msg::add("An admin has been added with username and password: <code>" . $data . "</code>", "is-warning");
             } catch (\Exception $e) {
                 //gagal update
             }
