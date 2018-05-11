@@ -84,7 +84,7 @@ class admin {
         }
         for($i=0; $i<$total_admin; $i++) {
             try {
-                $statement = \Sistem\Base::get_db()->prepare("INSERT INTO anggota (username, password, nama, telepon, alamat, is_admin) VALUES(?,?,?,?,?,0)");
+                $statement = \Sistem\Base::get_db()->prepare("INSERT INTO anggota (username, password, nama, telepon, alamat, is_admin) VALUES(?,?,?,?,?,1)");
                 $data=\Helper\AB::generate(32);
                 $statement->bind_param(
                     "sssss",
