@@ -57,7 +57,7 @@ class books {
         $query = \Sistem\Base::get_db()->query("SELECT buku.*, 
             peminjaman.*, 
             DATEDIFF(peminjaman.tanggal_kembali,peminjaman.tanggal_deadline) as x_overdue, 
-            (DATEDIFF(peminjaman.tanggal_kembali, peminjaman.tanggal_deadline) * 1) as fine
+            (DATEDIFF(peminjaman.tanggal_kembali, peminjaman.tanggal_deadline) * 1000) as fine
             FROM peminjaman left join buku on buku.id=peminjaman.id_buku");
         \Sistem\View::render("book_borrow.php",[
             "books"=>\Helper\DB::fetch_all($query)
